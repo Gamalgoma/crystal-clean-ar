@@ -2,39 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Crystal Clean Car Wash Design System - Arabic RTL Layout */
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Tajawal:wght@300;400;500;700;800&display=swap');
 
 @layer base {
   :root {
+    /* Crystal Clean Brand Colors */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 210 15% 20%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 210 15% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 210 15% 20%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Sky Blue Primary Colors */
+    --primary: 200 85% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-dark: 200 90% 35%;
+    --primary-light: 200 75% 65%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Clean White Secondary */
+    --secondary: 0 0% 98%;
+    --secondary-foreground: 210 15% 20%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 200 75% 85%;
+    --accent-foreground: 200 90% 25%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 200 85% 45%;
 
     --radius: 0.5rem;
 
@@ -100,6 +105,51 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-arabic;
+    direction: rtl;
+  }
+
+  html {
+    direction: rtl;
+  }
+}
+
+@layer components {
+  /* Arabic Typography Classes */
+  .font-arabic {
+    font-family: 'Cairo', 'Tajawal', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  
+  .font-arabic-display {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 700;
+  }
+  
+  .font-arabic-body {
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 400;
+  }
+
+  /* Crystal Clean Brand Components */
+  .hero-gradient {
+    background: linear-gradient(135deg, hsl(var(--primary-dark)) 0%, hsl(var(--primary)) 100%);
+  }
+
+  .diagonal-split {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  }
+
+  .car-wash-glow {
+    box-shadow: 0 0 40px hsla(var(--primary), 0.3);
+  }
+
+  .crystal-shine {
+    background: linear-gradient(45deg, transparent 30%, hsla(0, 0%, 100%, 0.5) 50%, transparent 70%);
+    animation: shine 3s infinite;
+  }
+
+  @keyframes shine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
   }
 }
